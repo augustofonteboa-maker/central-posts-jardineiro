@@ -46,3 +46,23 @@ if "--artifact" in sys.argv:
            + fonts + "\n<style>" + css + "</style>\n" + corpo)
     (raiz / "artifact.html").write_text(art, encoding="utf-8")
     print("artifact.html gerado")
+
+
+# ---- pacotes .zip por post (video + capa + legenda.txt): python3 build.py --zips [--small]
+if "--zips" in sys.argv:
+    import zipfile, shutil
+    pasta = raiz / ("zip_art" if "--small" in sys.argv else "zip")
+    if pasta.exists():
+        shutil.rmtree(pasta)
+    pasta.mkdir()
+    for p in posts["posts"]:
+        nome = f"post{p['ordem']}-{p['id']}.zip"
+        video = raiz / "vid/full" / f"{p['video']}.mp4"
+        if "--small" in sys.argv and (raiz / "vid/art" / f"{p['video']}.mp4").exists():
+            video = raiz / "vid/art" / f"{p['video']}.mp4"
+        texto = p["legenda"].rstrip() + "\n\n" + " ".join(p["hashtags"]) + "\n\n---\nTexto alternativo:\n" + p["alt"] + "\n"
+        with zipfile.ZipFile(pasta / nome, "w", zipfile.ZIP_STORED) as z:
+            z.write(video, f"{p['ordem']}-{p['id']}.mp4")
+            z.write(raiz / "img/full" / f"{p['video']}.png", f"{p['ordem']}-{p['id']}-capa.png")
+            z.writestr(f"{p['ordem']}-{p['id']}-legenda.txt", texto)
+    print("zips gerados em", pasta.name)

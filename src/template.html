@@ -252,6 +252,10 @@ function cartao(p){
   var s1=el("a",{class:"btn pri big",href:"vid/full/"+p.video+".mp4",download:p.arquivo,target:"_blank",rel:"noopener"},"1 · Salvar vídeo");s1.addEventListener("click",function(e){if(!topo){e.preventDefault();salvarPorAqui("vid/full/"+p.video+".mp4",p.arquivo,"Vídeo enviado para salvar")}else toast(msgSalvar())});
   var s2=el("button",{class:"btn pri big",type:"button"},"2 · Copiar legenda");s2.onclick=function(){copiar(textoCompleto(p),"Legenda e hashtags copiadas")};
   acts.appendChild(s1);acts.appendChild(s2);b.appendChild(acts);
+  var zn="post"+p.ordem+"-"+p.id+".zip",zu="zip/"+zn;
+  var zl=el("a",{class:"btn big",href:zu,download:zn,target:"_blank",rel:"noopener",style:"margin-top:10px"},"Baixar pacote .zip (vídeo + capa + legenda)");
+  zl.addEventListener("click",function(e){if(!topo){e.preventDefault();salvarPorAqui(zu,zn,"Pacote enviado para salvar")}else toast("Baixando o pacote…")});
+  b.appendChild(zl);
   var sm=el("div",{class:"small"});
   [["Copiar só as hashtags",function(){copiar(p.hashtags.join(" "),"Hashtags copiadas")}],
    ["Copiar texto alternativo",function(){copiar(p.alt,"Texto alternativo copiado")}],
