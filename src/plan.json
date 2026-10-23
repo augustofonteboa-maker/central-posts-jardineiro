@@ -1,0 +1,180 @@
+{
+  "resumoMarca": [
+    "Serviço de jardinagem que vende pelo WhatsApp: poda, plantio, manutenção e paisagismo (nome ainda não definido; usado \"Jardineiro\" como provisório).",
+    "Público: donos de casa e apartamento com quintal ou varanda, sem tempo ou sem saber por onde começar.",
+    "Identidade: laranja #FF4B0A, preto #0A0A0A, branco e creme #F4EEE8, com grade sutil e brilho laranja.",
+    "Tipografia: Archivo 800/900 nos títulos e Inter 500/600 no apoio (ambas do Google Fonts).",
+    "Tom de voz: direto e próximo, frases curtas com verbo no começo. Logo: ícone de folha dentro de quadrado arredondado laranja."
+  ],
+  "checklist": [
+    {
+      "id": "conta-pro",
+      "texto": "Conta profissional ligada, com categoria \"Serviço de jardinagem\" ou parecida"
+    },
+    {
+      "id": "nome-bio",
+      "texto": "Nome do perfil e bio definidos (o que faz, para quem, como chamar)"
+    },
+    {
+      "id": "link-bio",
+      "texto": "Link da bio apontando para o WhatsApp, com UTM (ex.: ?utm_source=instagram&utm_medium=bio&utm_campaign=reels)"
+    },
+    {
+      "id": "foto",
+      "texto": "Foto de perfil com o logo da folha (arquivo em assets/logo.png)"
+    },
+    {
+      "id": "destaques",
+      "texto": "Destaques criados: Serviços, Como funciona, Chame no WhatsApp"
+    },
+    {
+      "id": "wpp",
+      "texto": "WhatsApp com mensagem de boas-vindas e respostas rápidas para poda, plantio, manutenção e paisagismo"
+    },
+    {
+      "id": "fixados",
+      "texto": "Anotado quais posts fixar: 1, 3 e 4 (o Instagram deixa fixar até 3)"
+    }
+  ],
+  "fases": [
+    {
+      "n": 1,
+      "nome": "Despertar curiosidade",
+      "posts": [
+        1,
+        2
+      ],
+      "porque": "A primeira impressão do perfil decide se a pessoa fica: abre com a arte mais forte e logo mostra os problemas que ela reconhece.",
+      "metrica": "Tempo médio de visualização e envios por DM",
+      "seAbaixo": "Troque a capa e refaça os 3 primeiros segundos antes de publicar o próximo."
+    },
+    {
+      "n": 2,
+      "nome": "Apresentar o serviço",
+      "posts": [
+        3
+      ],
+      "porque": "Depois de reconhecer o problema, a pessoa precisa saber exatamente o que é oferecido.",
+      "metrica": "Salvamentos",
+      "seAbaixo": "Deixe a lista de serviços mais visível na bio e nos destaques."
+    },
+    {
+      "n": 3,
+      "nome": "Mostrar o ganho",
+      "posts": [
+        4
+      ],
+      "porque": "Com o serviço entendido, tirar o medo do processo ajuda quem estava indeciso a dar o primeiro passo.",
+      "metrica": "Cliques no link da bio e conversas iniciadas no WhatsApp",
+      "seAbaixo": "Reforce o link da bio em um story e teste outra frase de chamada no post."
+    },
+    {
+      "n": 4,
+      "nome": "Chamar quem convive",
+      "posts": [
+        5
+      ],
+      "porque": "Quem decide o gasto em casa muitas vezes é outra pessoa; marcar e enviar traz esse decisor.",
+      "metrica": "Compartilhamentos e marcações",
+      "seAbaixo": "Peça o envio em story com uma enquete (\"quem lá em casa cuida do jardim?\")."
+    },
+    {
+      "n": 5,
+      "nome": "Manter presença",
+      "posts": [
+        6,
+        7
+      ],
+      "porque": "Versões em outro estilo lembram quem não viu antes, sem parecer repetição, e mantêm o perfil com conteúdo recente.",
+      "metrica": "Alcance de não seguidores",
+      "seAbaixo": "Produza posts novos antes de usar estas versões e use-as como anúncio."
+    }
+  ],
+  "porQueOrdem": [
+    "A ordem alterna capas laranja e capas pretas, para o grid não ficar com duas artes do mesmo tom lado a lado.",
+    "Como só existem 7 vídeos e eles repetem duas mensagens (\"Do mato ao jardim\" em 3 versões e \"3 passos\" em 2), a regra de 4 posts de distância entre mensagens parecidas só fecha para as versões principais (1 e 5). Os posts 5, 6 e 7 são variações: publique-os só depois de novos posts no meio, ou use como anúncio."
+  ],
+  "stories": [
+    {
+      "titulo": "Link da bio",
+      "ideia": "Recorte o quadro final laranja de qualquer vídeo (\"Chame no WhatsApp\") em um story 9:16 e coloque o sticker de link por cima.",
+      "sticker": "Chame no WhatsApp"
+    },
+    {
+      "titulo": "Enquete de serviço",
+      "ideia": "Use a capa do post 3 (PODA) com uma enquete: \"Qual serviço o seu jardim pede hoje?\" com Poda ou Plantio.",
+      "sticker": "Peça seu orçamento"
+    },
+    {
+      "titulo": "Bastidor do passo 01",
+      "ideia": "Grave a tela de uma conversa real de WhatsApp (sem dados de clientes) mostrando a primeira resposta.",
+      "sticker": "Comece pelo WhatsApp"
+    }
+  ],
+  "reels": [
+    "Corte de 10 s do trecho \"Mato alto → Por onde começar?\" do post 1 como Reel curto de curiosidade.",
+    "Versão só com música do post 4 (os três passos) para atingir quem assiste sem som.",
+    "Série de 4 Reels de 7 s, um por serviço, recortados do post 3 (Poda, Plantio, Manutenção, Paisagismo)."
+  ],
+  "mercado": {
+    "algoritmo": [
+      "Segundo a Metricool, os sinais mais valorizados em 2026 são salvamentos, compartilhamentos por DM ou stories e tempo de visualização (o mais forte para Reels); curtidas pesam menos.",
+      "A mesma fonte indica que Reels têm o melhor desempenho geral e que carrosséis são salvos mais vezes que outros formatos.",
+      "O grid do perfil agora mostra miniaturas em 3:4 (1013x1350 px); a Planoly recomenda postar em 4:5 e deixar o texto longe das bordas, porque a miniatura corta as laterais.",
+      "O Instagram permite fixar até 3 posts no topo do perfil."
+    ],
+    "concorrentes": [
+      {
+        "nome": "Caterine Poli (Catê)",
+        "posicionamento": "Paisagista que se apresenta com a ideia de \"jardins para usar\".",
+        "diferencial": "Aqui o serviço é mostrado em animações curtas e a única chamada é o WhatsApp."
+      },
+      {
+        "nome": "Folha Paisagismo (Luiz Felipe e Luiz Gustavo)",
+        "posicionamento": "Dupla que leva a natureza de áreas externas para dentro de casa.",
+        "diferencial": "Aqui a marca fala do cuidado de rotina (poda, plantio e manutenção), não de projeto de autor."
+      },
+      {
+        "nome": "Erik Wisniewski",
+        "posicionamento": "Implantação e manutenção de jardins, jardins verticais, irrigação e vasos.",
+        "diferencial": "Aqui a identidade laranja e preta foge do visual verde comum no setor e os passos são explicados em 30 segundos."
+      },
+      {
+        "nome": "Marlon Lima",
+        "posicionamento": "Projetos e construção de jardins internos e externos, com consultoria online.",
+        "diferencial": "Aqui a pessoa chama direto no WhatsApp, sem etapa de consultoria."
+      }
+    ],
+    "diferencial": "Como esta marca se diferencia: usa animações curtas e uma identidade laranja e preta, fora do verde comum no setor, com um único convite (chamar no WhatsApp). A descrição de cada perfil vem de páginas de terceiros (veja as fontes); não foi feita análise direta dos perfis."
+  },
+  "fontes": [
+    {
+      "titulo": "Metricool: Algoritmo do Instagram em 2026",
+      "url": "https://metricool.com/pt/algoritmo-instagram/"
+    },
+    {
+      "titulo": "Planoly: guia do novo grid vertical do Instagram",
+      "url": "https://planoly.com/blog/guide-to-instagrams-new-vertical-grid"
+    },
+    {
+      "titulo": "Wersm: fixe até 3 posts no perfil do Instagram",
+      "url": "https://wersm.com/you-can-now-pin-up-to-3-posts-to-the-top-of-your-instagram-profile/"
+    },
+    {
+      "titulo": "TechRadar: Instagram permite fixar três posts",
+      "url": "https://www.techradar.com/news/instagram-will-now-let-you-create-90-secs-reels-pin-three-posts-at-a-time-and-more"
+    },
+    {
+      "titulo": "Folha Vitória: perfis para quem ama paisagismo",
+      "url": "https://www.folhavitoria.com.br/cultura/decoracao/perfis-nas-redes-sociais-para-quem-ama-paisagismo/"
+    },
+    {
+      "titulo": "Heepsy: perfis de jardinagem no Brasil",
+      "url": "https://www.heepsy.com/top-instagram/garden/brazil"
+    },
+    {
+      "titulo": "Predis.ai: ideias de conteúdo para paisagistas",
+      "url": "https://predis.ai/pt/resources/content-ideas-for-landscapers/"
+    }
+  ]
+}

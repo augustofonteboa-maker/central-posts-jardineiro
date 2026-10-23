@@ -1,0 +1,178 @@
+{
+  "marca": {
+    "nome": "Jardineiro",
+    "nota": "Nome provisório. A marca ainda não tem nome, logo próprio nem WhatsApp definidos. Troque em src/posts.json (campo marca) e rode build.py.",
+    "whatsapp": "",
+    "instagram": ""
+  },
+  "posts": [
+    {
+      "id": "do-mato-ao-jardim-3d",
+      "ordem": 1,
+      "titulo": "Do mato ao jardim (3D)",
+      "tipo": "reel",
+      "pasta": "APROVADOS",
+      "fase": 1,
+      "principal": true,
+      "familia": "R2",
+      "arquivo": "Jardineiro_v3_R2_DoMatoAoJardim_4x5_1080x1350.mp4",
+      "video": "v3_R2_DoMatoAoJardim",
+      "tom": "laranja",
+      "objetivo": "Abrir o perfil com a arte mais forte e despertar curiosidade em quem tem um canto abandonado.",
+      "legenda": "Quintal cheio de mato pede ordem: limpar, preparar, plantar e cuidar. Nessa sequência.\n\nO vídeo mostra as quatro etapas em 30 segundos, do terreno tomado até o canto de casa que a família passa a usar.\n\nLembrou de alguém com um canto assim? Envie este Reel para essa pessoa.",
+      "hashtags": [
+        "#seujardineiro",
+        "#jardinagem",
+        "#paisagismo",
+        "#quintal",
+        "#jardimbonito"
+      ],
+      "alt": "Vídeo animado em estilo 3D isométrico: um terreno cheio de mato alto vira, etapa por etapa, um jardim com canteiros laranja e branco, plantas, flores e uma casinha, com o convite para pedir o serviço pelo WhatsApp.",
+      "obs": "Fixar no perfil (1º fixado). Capa: quadro laranja com o terreno de mato."
+    },
+    {
+      "id": "seu-jardim-pede-ajuda",
+      "ordem": 2,
+      "titulo": "Seu jardim pede ajuda?",
+      "tipo": "reel",
+      "pasta": "APROVADOS",
+      "fase": 1,
+      "principal": true,
+      "familia": "R1",
+      "arquivo": "Jardineiro_R1_SeuJardimPedeAjuda_4x5_1080x1350.mp4",
+      "video": "R1_SeuJardimPedeAjuda",
+      "tom": "escuro",
+      "objetivo": "Fazer o público se reconhecer nos problemas e entender que pedir ajuda é simples.",
+      "legenda": "Mato alto e planta seca no mesmo jardim? Costuma acontecer quando a rotina aperta e falta tempo.\n\nQuem cuida da casa conhece o roteiro: o jardim fica para depois, e o depois vira semanas. O vídeo mostra o caminho mais curto para resolver: uma mensagem, e a gente vai até aí.\n\nSalve este Reel para o dia em que o jardim passar do ponto.",
+      "hashtags": [
+        "#seujardineiro",
+        "#jardinagem",
+        "#manutencaodejardim",
+        "#cuidadocomasplantas",
+        "#jardimemcasa"
+      ],
+      "alt": "Vídeo animado com fundo preto e detalhes em laranja: cartões mostram problemas comuns de jardim, uma conversa de WhatsApp com resposta de atendimento e o texto 'Sem bagunça' riscado, terminando em tela laranja com botão 'Chamar agora'.",
+      "obs": "Voz narrada do Augusto. Capa: ícone de folha laranja sobre fundo preto."
+    },
+    {
+      "id": "o-que-a-gente-cuida",
+      "ordem": 3,
+      "titulo": "O que a gente cuida",
+      "tipo": "reel",
+      "pasta": "APROVADOS",
+      "fase": 2,
+      "principal": true,
+      "familia": "R4",
+      "arquivo": "Jardineiro_R4_OQueAGenteCuida_4x5_1080x1350.mp4",
+      "video": "R4_OQueAGenteCuida",
+      "tom": "laranja",
+      "objetivo": "Apresentar os quatro serviços de forma rápida e fácil de lembrar.",
+      "legenda": "Sem saber qual serviço escolher? Planta desgrenhada pede poda. Canto vazio pede plantio.\n\nJardim que já está bonito pede manutenção para continuar assim. Espaço sem projeto pede paisagismo. Cada situação tem o seu serviço, e dá para combinar mais de um.\n\nQual deles o seu jardim pede hoje? Responda nos comentários.",
+      "hashtags": [
+        "#seujardineiro",
+        "#jardinagem",
+        "#paisagismo",
+        "#podadeplantas",
+        "#plantio"
+      ],
+      "alt": "Vídeo animado com tipografia grande alternando fundo laranja e preto: apresenta os serviços Poda, Plantio, Manutenção e Paisagismo, cada um com um ícone, e fecha com os quatro serviços juntos e o botão 'Chame no WhatsApp'.",
+      "obs": "Fixar no perfil (3º fixado). Sem voz, só trilha. Capa: quadro laranja com a palavra PODA."
+    },
+    {
+      "id": "jardim-bonito-em-3-passos-3d",
+      "ordem": 4,
+      "titulo": "Jardim bonito em 3 passos (3D)",
+      "tipo": "reel",
+      "pasta": "APROVADOS",
+      "fase": 3,
+      "principal": true,
+      "familia": "R3",
+      "arquivo": "Jardineiro_v3_R3_TresPassos_4x5_1080x1350.mp4",
+      "video": "v3_R3_TresPassos",
+      "tom": "escuro",
+      "objetivo": "Mostrar o ganho: o caminho até um jardim cuidado é curto e sem complicação.",
+      "legenda": "Pedir ajuda com o jardim leva uma mensagem e uma conversa curta. Sem formulário e sem burocracia.\n\nEscreva do seu jeito o que o jardim está pedindo. A gente responde, entende o que precisa e combina o resto por ali mesmo.\n\nToque no link da bio e comece a conversa.",
+      "hashtags": [
+        "#seujardineiro",
+        "#jardinagem",
+        "#paisagismo",
+        "#jardimdecasa",
+        "#dicasdejardinagem"
+      ],
+      "alt": "Vídeo animado escuro com detalhes laranja em três etapas numeradas: 01 conversa de WhatsApp, 02 mapa com pontos de poda, plantio e manutenção, 03 canteiro isométrico florido. Termina com os três passos lado a lado e tela laranja com 'Chame no WhatsApp'.",
+      "obs": "Fixar no perfil (2º fixado). Sem voz, trilha pop. Capa: quadro escuro com o selo 01."
+    },
+    {
+      "id": "do-mato-ao-jardim-v2",
+      "ordem": 5,
+      "titulo": "Do mato ao jardim (3D, versão 2)",
+      "tipo": "reel",
+      "pasta": "APROVADOS",
+      "fase": 4,
+      "principal": false,
+      "familia": "R2",
+      "arquivo": "Jardineiro_v2_R2_DoMatoAoJardim_4x5_1080x1350.mp4",
+      "video": "v2_R2_DoMatoAoJardim",
+      "tom": "laranja",
+      "objetivo": "Chamar quem convive com o problema: o jardim é um canto da casa que a família divide.",
+      "legenda": "Quem decide sobre o jardim na sua casa? Esse assunto costuma ficar parado até alguém tomar a frente.\n\nAs etapas aparecem na ordem: limpeza, preparo, plantio e cuidado ao longo dos meses. Com o roteiro à vista, fica mais fácil conversar sobre o que fazer primeiro.\n\nMarque nos comentários quem decide isso na sua casa.",
+      "hashtags": [
+        "#seujardineiro",
+        "#jardinagem",
+        "#paisagismo",
+        "#casaejardim",
+        "#vidaaoarlivre"
+      ],
+      "alt": "Vídeo animado em 3D isométrico com linha do tempo de quatro etapas (limpeza, preparo, plantio e cuidado): um terreno com mato alto vira um jardim florido, com um calendário marcando o mês 12 e fechamento com botão 'Chamar agora'.",
+      "obs": "Variação do post 1. Publicar só depois de pelo menos 3 posts diferentes no meio. Também serve como anúncio ou teste A/B."
+    },
+    {
+      "id": "jardim-bonito-em-3-passos-2d",
+      "ordem": 6,
+      "titulo": "Jardim bonito em 3 passos (2D)",
+      "tipo": "reel",
+      "pasta": "APROVADOS",
+      "fase": 5,
+      "principal": false,
+      "familia": "R3",
+      "arquivo": "Jardineiro_R3_TresPassos_4x5_1080x1350.mp4",
+      "video": "R3_TresPassos",
+      "tom": "escuro",
+      "objetivo": "Manter presença reforçando a simplicidade do processo para quem ainda não chamou.",
+      "legenda": "Aquela mensagem sobre o jardim que você vive adiando cabe em uma frase só.\n\nNão precisa descrever tudo, nem saber o nome das plantas. Comece dizendo o que incomoda e a gente conduz o resto.\n\nEnvie este Reel para quem sempre diz que vai cuidar do quintal na semana que vem.",
+      "hashtags": [
+        "#seujardineiro",
+        "#jardinagem",
+        "#manutencaodejardim",
+        "#quintal",
+        "#jardimdecasa"
+      ],
+      "alt": "Vídeo animado com fundo preto e ícones vetoriais laranja e brancos: o número 3, uma conversa de WhatsApp, um mapa com marcadores de Poda, Plantio e Manutenção, canteiros preenchidos e três cartões numerados, terminando em tela laranja com 'Chame no WhatsApp'.",
+      "obs": "Variação do post 4 em estilo 2D. Publicar depois de novos posts no meio."
+    },
+    {
+      "id": "do-mato-ao-jardim-2d",
+      "ordem": 7,
+      "titulo": "Do mato ao jardim (2D)",
+      "tipo": "reel",
+      "pasta": "APROVADOS",
+      "fase": 5,
+      "principal": false,
+      "familia": "R2",
+      "arquivo": "Jardineiro_R2_DoMatoAoJardim_4x5_1080x1350.mp4",
+      "video": "R2_DoMatoAoJardim",
+      "tom": "laranja",
+      "objetivo": "Manter presença com a mesma história em traço simples, para quem não viu os anteriores.",
+      "legenda": "Todo jardim bonito tem uma sequência por trás. A do vídeo vai do mato alto ao canteiro regado.\n\nLimpar, podar, preparar, plantar, regar. Quando cada passo acontece na ordem, o espaço fica pronto para durar.\n\nQuer ver o seu jardim nessa sequência? Chame no WhatsApp pelo link da bio.",
+      "hashtags": [
+        "#seujardineiro",
+        "#jardinagem",
+        "#paisagismo",
+        "#jardimbonito",
+        "#plantas"
+      ],
+      "alt": "Vídeo animado em traço simples, com fundo laranja e depois preto: um tufo de mato alto vira fileiras de mudas, um jardim florido sob um sol laranja e termina com 'Peça o seu pelo WhatsApp' e o botão 'Chamar agora'.",
+      "obs": "Variação do post 1 em 2D. Usar como último da sequência ou em anúncios."
+    }
+  ]
+}

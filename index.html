@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0A">
+<title>Central de posts · Jardineiro</title>
+<link rel="icon" href="assets/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<style>
+@font-face{font-family:"Archivo";font-weight:800;font-display:swap;src:url(assets/fonts/archivo-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Archivo";font-weight:900;font-display:swap;src:url(assets/fonts/archivo-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(assets/fonts/inter-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(assets/fonts/inter-latin-600-normal.woff2) format("woff2")}
+:root{--or:#FF4B0A;--bk:#0A0A0A;--cr:#F4EEE8;--card:#171310;--line:#2c2520;--mut:#BDB3AA;--ok:#6EE7A8;
+--fd:"Archivo","Arial Black",system-ui,sans-serif;--fb:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{overflow-wrap:anywhere;margin:0;background:var(--bk);color:var(--cr);font:500 16px/1.5 var(--fb);overflow-x:hidden;
+background-image:radial-gradient(60rem 30rem at 50% -10rem,rgba(255,75,10,.14),transparent 70%)}
+h1,h2,h3{font-family:var(--fd);font-weight:900;line-height:1.1;margin:0}
+a{color:var(--or)}
+:focus-visible{outline:3px solid #fff;outline-offset:2px;border-radius:6px}
+button,a.btn,label.chk{font:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:20;background:rgba(10,10,10,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:12px;padding:10px 0}
+.bar img{width:40px;height:40px;border-radius:10px}
+.bar .t{flex:1;min-width:0}
+.bar h1{font-size:18px}
+.prog{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-top:6px}
+.prog i{display:block;height:100%;width:0;background:var(--or);transition:width .3s}
+.prog-l{font-size:13px;color:var(--mut)}
+nav.tabs{display:flex;gap:6px;padding-bottom:10px}
+nav.tabs button{flex:1;min-height:48px;border:1px solid var(--line);background:transparent;color:var(--cr);border-radius:12px;font-weight:600;cursor:pointer}
+nav.tabs button[aria-selected=true]{background:var(--or);border-color:var(--or);color:var(--bk)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+.steps div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:14px}
+.steps b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--or);color:var(--bk);font-family:var(--fd);margin-bottom:6px}
+section.panel[hidden]{display:none}
+h2{font-size:24px;margin:28px 0 12px}
+h3{font-size:18px;margin:0 0 6px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+.muted{color:var(--mut);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border-radius:14px;border:2px solid var(--or);background:transparent;color:var(--cr);font-weight:600;cursor:pointer;text-decoration:none;text-align:center}
+.btn.pri{background:var(--or);color:var(--bk);font-family:var(--fd);font-weight:800}
+.btn.big{min-height:56px;font-size:17px;width:100%}
+.btn.lnk{border-color:transparent;color:var(--or);text-decoration:underline;min-height:48px;padding:0 8px}
+.next{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start}
+.next img{width:96px;border-radius:12px;aspect-ratio:4/5;object-fit:cover}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.row .btn{flex:1 1 150px}
+.chk{display:flex;align-items:center;gap:12px;min-height:48px;cursor:pointer}
+.chk input{width:26px;height:26px;accent-color:var(--or);flex:none}
+.fase{border-left:4px solid var(--or);padding-left:12px;margin:14px 0}
+.fase ol{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.fase li button{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;text-align:left;background:var(--card);border:1px solid var(--line);color:var(--cr);border-radius:12px;padding:6px 12px;cursor:pointer}
+.fase li button.done{opacity:.65}
+.fase li .n{font-family:var(--fd);font-size:20px;color:var(--or);min-width:28px}
+.fase li img{width:36px;height:45px;border-radius:6px;object-fit:cover}
+.fase li .ok{margin-left:auto;color:var(--ok);font-weight:600}
+ul.plain{margin:0;padding-left:20px}ul.plain li{margin:6px 0}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.filters button{min-height:48px;padding:0 16px;border-radius:24px;border:1px solid var(--line);background:transparent;color:var(--cr);font-weight:600;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--cr);color:var(--bk);border-color:var(--cr)}
+.filters label{display:flex;align-items:center;gap:8px;min-height:48px;margin-left:auto;cursor:pointer}
+.filters input{width:22px;height:22px;accent-color:var(--or)}
+article.post{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:20px;scroll-margin-top:150px}
+article.post.hl{border-color:var(--or);box-shadow:0 0 0 3px rgba(255,75,10,.35)}
+article.post.pub{opacity:.8}
+.pv{position:relative;touch-action:pan-y}
+.pv .slide{display:none;aspect-ratio:4/5;position:relative}
+.pv .slide.on{display:block}
+.pv.laranja{background:#FF4B0A}.pv.escuro{background:#0A0A0A}
+.pv .slide img,.pv .slide video{width:100%;height:100%;object-fit:contain;display:block;background:inherit}
+.pv .play{position:absolute;right:14px;bottom:14px;width:64px;height:64px;border-radius:50%;border:0;background:var(--or);color:var(--bk);font-size:30px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.pv.laranja .play{background:var(--bk);color:var(--or)}
+.pv .arr{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(10,10,10,.75);color:#fff;font-size:22px;cursor:pointer}
+.pv .arr.l{left:8px}.pv .arr.r{right:8px}
+.dots{display:flex;justify-content:center;gap:8px;padding:8px}
+.dots button{width:14px;height:14px;border-radius:50%;border:0;background:#777;padding:0;cursor:pointer;position:relative}
+.dots button::after{content:"";position:absolute;inset:-17px}
+.dots button[aria-current=true]{background:var(--or)}
+.pb{padding:16px}h3[tabindex="-1"]:focus{outline:none}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.badge{font-size:13px;font-weight:600;padding:4px 10px;border-radius:20px;background:#2a221d;color:var(--cr)}
+.badge.o{background:var(--or);color:var(--bk)}
+.obj{margin:6px 0 12px;color:var(--mut);font-size:14px}
+.obs{margin:0 0 12px;font-size:14px;border-left:3px solid var(--or);padding-left:10px}
+textarea.leg{width:100%;min-height:150px;resize:vertical;background:#0f0c0a;color:var(--cr);border:1px solid var(--line);border-radius:12px;padding:12px;font:500 16px/1.5 var(--fb)}
+textarea.leg.clamp{height:150px;overflow:hidden}
+.legbar{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:6px 0 12px;font-size:14px;color:var(--mut)}
+.legbar .cnt{margin-right:auto}
+.legbar .cnt.over{color:#ff8a8a;font-weight:600}
+.tags{font-size:14px;color:var(--mut);margin:0 0 12px;word-break:break-word}
+.acts{display:grid;gap:10px}
+.small{display:flex;flex-wrap:wrap;gap:0 4px;margin-top:6px}
+.pubrow{margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+.pasta h3{margin:24px 0 4px}
+.pasta .it{display:flex;gap:12px;align-items:center;min-height:56px;padding:6px 0;border-bottom:1px solid var(--line)}
+.pasta .it img{width:40px;height:50px;object-fit:cover;border-radius:6px}
+.pasta .it button{flex:1;text-align:left;background:none;border:0;color:var(--cr);cursor:pointer;min-height:48px;padding:0}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--cr);color:var(--bk);padding:14px 20px;border-radius:14px;font-weight:600;z-index:50;max-width:90vw;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+.empty{padding:24px;text-align:center;color:var(--mut)}
+footer{padding:32px 0 60px;color:var(--mut);font-size:13px}
+@media(min-width:640px){.acts{grid-template-columns:1fr 1fr}.steps div{font-size:15px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="bar"><img src="assets/logo.png" alt="Logo Jardineiro" width="40" height="40">
+    <div class="t"><h1>Central de posts · <span id="nomeMarca"></span></h1>
+      <div class="prog" role="progressbar" aria-label="Posts publicados" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progBar"></i></div>
+      <div class="prog-l" id="progTxt"></div></div></div>
+  <nav class="tabs" role="tablist" aria-label="Seções">
+    <button role="tab" id="tab-plano" data-tab="plano" aria-selected="true">Plano</button>
+    <button role="tab" id="tab-posts" data-tab="posts" aria-selected="false">Posts</button>
+    <button role="tab" id="tab-pastas" data-tab="pastas" aria-selected="false">Pastas</button>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="steps" aria-label="Como publicar em 3 passos">
+    <div><b>1</b>Toque em <strong>Salvar vídeo</strong></div>
+    <div><b>2</b>Toque em <strong>Copiar legenda</strong></div>
+    <div><b>3</b>Abra o Instagram e cole</div>
+  </div>
+
+  <section class="panel" id="panel-plano" role="tabpanel" aria-labelledby="tab-plano"></section>
+  <section class="panel" id="panel-posts" role="tabpanel" aria-labelledby="tab-posts" hidden></section>
+  <section class="panel" id="panel-pastas" role="tabpanel" aria-labelledby="tab-pastas" hidden></section>
+
+  <footer>Central de posts gerada a partir da pasta APROVADOS. Edições e marcações ficam salvas só neste navegador.</footer>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script id="data" type="application/json">{"marca": {"nome": "Jardineiro", "nota": "Nome provisório. A marca ainda não tem nome, logo próprio nem WhatsApp definidos. Troque em src/posts.json (campo marca) e rode build.py.", "whatsapp": "", "instagram": ""}, "posts": [{"id": "do-mato-ao-jardim-3d", "ordem": 1, "titulo": "Do mato ao jardim (3D)", "tipo": "reel", "pasta": "APROVADOS", "fase": 1, "principal": true, "familia": "R2", "arquivo": "Jardineiro_v3_R2_DoMatoAoJardim_4x5_1080x1350.mp4", "video": "v3_R2_DoMatoAoJardim", "tom": "laranja", "objetivo": "Abrir o perfil com a arte mais forte e despertar curiosidade em quem tem um canto abandonado.", "legenda": "Quintal cheio de mato pede ordem: limpar, preparar, plantar e cuidar. Nessa sequência.\n\nO vídeo mostra as quatro etapas em 30 segundos, do terreno tomado até o canto de casa que a família passa a usar.\n\nLembrou de alguém com um canto assim? Envie este Reel para essa pessoa.", "hashtags": ["#seujardineiro", "#jardinagem", "#paisagismo", "#quintal", "#jardimbonito"], "alt": "Vídeo animado em estilo 3D isométrico: um terreno cheio de mato alto vira, etapa por etapa, um jardim com canteiros laranja e branco, plantas, flores e uma casinha, com o convite para pedir o serviço pelo WhatsApp.", "obs": "Fixar no perfil (1º fixado). Capa: quadro laranja com o terreno de mato."}, {"id": "seu-jardim-pede-ajuda", "ordem": 2, "titulo": "Seu jardim pede ajuda?", "tipo": "reel", "pasta": "APROVADOS", "fase": 1, "principal": true, "familia": "R1", "arquivo": "Jardineiro_R1_SeuJardimPedeAjuda_4x5_1080x1350.mp4", "video": "R1_SeuJardimPedeAjuda", "tom": "escuro", "objetivo": "Fazer o público se reconhecer nos problemas e entender que pedir ajuda é simples.", "legenda": "Mato alto e planta seca no mesmo jardim? Costuma acontecer quando a rotina aperta e falta tempo.\n\nQuem cuida da casa conhece o roteiro: o jardim fica para depois, e o depois vira semanas. O vídeo mostra o caminho mais curto para resolver: uma mensagem, e a gente vai até aí.\n\nSalve este Reel para o dia em que o jardim passar do ponto.", "hashtags": ["#seujardineiro", "#jardinagem", "#manutencaodejardim", "#cuidadocomasplantas", "#jardimemcasa"], "alt": "Vídeo animado com fundo preto e detalhes em laranja: cartões mostram problemas comuns de jardim, uma conversa de WhatsApp com resposta de atendimento e o texto 'Sem bagunça' riscado, terminando em tela laranja com botão 'Chamar agora'.", "obs": "Voz narrada do Augusto. Capa: ícone de folha laranja sobre fundo preto."}, {"id": "o-que-a-gente-cuida", "ordem": 3, "titulo": "O que a gente cuida", "tipo": "reel", "pasta": "APROVADOS", "fase": 2, "principal": true, "familia": "R4", "arquivo": "Jardineiro_R4_OQueAGenteCuida_4x5_1080x1350.mp4", "video": "R4_OQueAGenteCuida", "tom": "laranja", "objetivo": "Apresentar os quatro serviços de forma rápida e fácil de lembrar.", "legenda": "Sem saber qual serviço escolher? Planta desgrenhada pede poda. Canto vazio pede plantio.\n\nJardim que já está bonito pede manutenção para continuar assim. Espaço sem projeto pede paisagismo. Cada situação tem o seu serviço, e dá para combinar mais de um.\n\nQual deles o seu jardim pede hoje? Responda nos comentários.", "hashtags": ["#seujardineiro", "#jardinagem", "#paisagismo", "#podadeplantas", "#plantio"], "alt": "Vídeo animado com tipografia grande alternando fundo laranja e preto: apresenta os serviços Poda, Plantio, Manutenção e Paisagismo, cada um com um ícone, e fecha com os quatro serviços juntos e o botão 'Chame no WhatsApp'.", "obs": "Fixar no perfil (3º fixado). Sem voz, só trilha. Capa: quadro laranja com a palavra PODA."}, {"id": "jardim-bonito-em-3-passos-3d", "ordem": 4, "titulo": "Jardim bonito em 3 passos (3D)", "tipo": "reel", "pasta": "APROVADOS", "fase": 3, "principal": true, "familia": "R3", "arquivo": "Jardineiro_v3_R3_TresPassos_4x5_1080x1350.mp4", "video": "v3_R3_TresPassos", "tom": "escuro", "objetivo": "Mostrar o ganho: o caminho até um jardim cuidado é curto e sem complicação.", "legenda": "Pedir ajuda com o jardim leva uma mensagem e uma conversa curta. Sem formulário e sem burocracia.\n\nEscreva do seu jeito o que o jardim está pedindo. A gente responde, entende o que precisa e combina o resto por ali mesmo.\n\nToque no link da bio e comece a conversa.", "hashtags": ["#seujardineiro", "#jardinagem", "#paisagismo", "#jardimdecasa", "#dicasdejardinagem"], "alt": "Vídeo animado escuro com detalhes laranja em três etapas numeradas: 01 conversa de WhatsApp, 02 mapa com pontos de poda, plantio e manutenção, 03 canteiro isométrico florido. Termina com os três passos lado a lado e tela laranja com 'Chame no WhatsApp'.", "obs": "Fixar no perfil (2º fixado). Sem voz, trilha pop. Capa: quadro escuro com o selo 01."}, {"id": "do-mato-ao-jardim-v2", "ordem": 5, "titulo": "Do mato ao jardim (3D, versão 2)", "tipo": "reel", "pasta": "APROVADOS", "fase": 4, "principal": false, "familia": "R2", "arquivo": "Jardineiro_v2_R2_DoMatoAoJardim_4x5_1080x1350.mp4", "video": "v2_R2_DoMatoAoJardim", "tom": "laranja", "objetivo": "Chamar quem convive com o problema: o jardim é um canto da casa que a família divide.", "legenda": "Quem decide sobre o jardim na sua casa? Esse assunto costuma ficar parado até alguém tomar a frente.\n\nAs etapas aparecem na ordem: limpeza, preparo, plantio e cuidado ao longo dos meses. Com o roteiro à vista, fica mais fácil conversar sobre o que fazer primeiro.\n\nMarque nos comentários quem decide isso na sua casa.", "hashtags": ["#seujardineiro", "#jardinagem", "#paisagismo", "#casaejardim", "#vidaaoarlivre"], "alt": "Vídeo animado em 3D isométrico com linha do tempo de quatro etapas (limpeza, preparo, plantio e cuidado): um terreno com mato alto vira um jardim florido, com um calendário marcando o mês 12 e fechamento com botão 'Chamar agora'.", "obs": "Variação do post 1. Publicar só depois de pelo menos 3 posts diferentes no meio. Também serve como anúncio ou teste A/B."}, {"id": "jardim-bonito-em-3-passos-2d", "ordem": 6, "titulo": "Jardim bonito em 3 passos (2D)", "tipo": "reel", "pasta": "APROVADOS", "fase": 5, "principal": false, "familia": "R3", "arquivo": "Jardineiro_R3_TresPassos_4x5_1080x1350.mp4", "video": "R3_TresPassos", "tom": "escuro", "objetivo": "Manter presença reforçando a simplicidade do processo para quem ainda não chamou.", "legenda": "Aquela mensagem sobre o jardim que você vive adiando cabe em uma frase só.\n\nNão precisa descrever tudo, nem saber o nome das plantas. Comece dizendo o que incomoda e a gente conduz o resto.\n\nEnvie este Reel para quem sempre diz que vai cuidar do quintal na semana que vem.", "hashtags": ["#seujardineiro", "#jardinagem", "#manutencaodejardim", "#quintal", "#jardimdecasa"], "alt": "Vídeo animado com fundo preto e ícones vetoriais laranja e brancos: o número 3, uma conversa de WhatsApp, um mapa com marcadores de Poda, Plantio e Manutenção, canteiros preenchidos e três cartões numerados, terminando em tela laranja com 'Chame no WhatsApp'.", "obs": "Variação do post 4 em estilo 2D. Publicar depois de novos posts no meio."}, {"id": "do-mato-ao-jardim-2d", "ordem": 7, "titulo": "Do mato ao jardim (2D)", "tipo": "reel", "pasta": "APROVADOS", "fase": 5, "principal": false, "familia": "R2", "arquivo": "Jardineiro_R2_DoMatoAoJardim_4x5_1080x1350.mp4", "video": "R2_DoMatoAoJardim", "tom": "laranja", "objetivo": "Manter presença com a mesma história em traço simples, para quem não viu os anteriores.", "legenda": "Todo jardim bonito tem uma sequência por trás. A do vídeo vai do mato alto ao canteiro regado.\n\nLimpar, podar, preparar, plantar, regar. Quando cada passo acontece na ordem, o espaço fica pronto para durar.\n\nQuer ver o seu jardim nessa sequência? Chame no WhatsApp pelo link da bio.", "hashtags": ["#seujardineiro", "#jardinagem", "#paisagismo", "#jardimbonito", "#plantas"], "alt": "Vídeo animado em traço simples, com fundo laranja e depois preto: um tufo de mato alto vira fileiras de mudas, um jardim florido sob um sol laranja e termina com 'Peça o seu pelo WhatsApp' e o botão 'Chamar agora'.", "obs": "Variação do post 1 em 2D. Usar como último da sequência ou em anúncios."}], "plan": {"resumoMarca": ["Serviço de jardinagem que vende pelo WhatsApp: poda, plantio, manutenção e paisagismo (nome ainda não definido; usado \"Jardineiro\" como provisório).", "Público: donos de casa e apartamento com quintal ou varanda, sem tempo ou sem saber por onde começar.", "Identidade: laranja #FF4B0A, preto #0A0A0A, branco e creme #F4EEE8, com grade sutil e brilho laranja.", "Tipografia: Archivo 800/900 nos títulos e Inter 500/600 no apoio (ambas do Google Fonts).", "Tom de voz: direto e próximo, frases curtas com verbo no começo. Logo: ícone de folha dentro de quadrado arredondado laranja."], "checklist": [{"id": "conta-pro", "texto": "Conta profissional ligada, com categoria \"Serviço de jardinagem\" ou parecida"}, {"id": "nome-bio", "texto": "Nome do perfil e bio definidos (o que faz, para quem, como chamar)"}, {"id": "link-bio", "texto": "Link da bio apontando para o WhatsApp, com UTM (ex.: ?utm_source=instagram&utm_medium=bio&utm_campaign=reels)"}, {"id": "foto", "texto": "Foto de perfil com o logo da folha (arquivo em assets/logo.png)"}, {"id": "destaques", "texto": "Destaques criados: Serviços, Como funciona, Chame no WhatsApp"}, {"id": "wpp", "texto": "WhatsApp com mensagem de boas-vindas e respostas rápidas para poda, plantio, manutenção e paisagismo"}, {"id": "fixados", "texto": "Anotado quais posts fixar: 1, 3 e 4 (o Instagram deixa fixar até 3)"}], "fases": [{"n": 1, "nome": "Despertar curiosidade", "posts": [1, 2], "porque": "A primeira impressão do perfil decide se a pessoa fica: abre com a arte mais forte e logo mostra os problemas que ela reconhece.", "metrica": "Tempo médio de visualização e envios por DM", "seAbaixo": "Troque a capa e refaça os 3 primeiros segundos antes de publicar o próximo."}, {"n": 2, "nome": "Apresentar o serviço", "posts": [3], "porque": "Depois de reconhecer o problema, a pessoa precisa saber exatamente o que é oferecido.", "metrica": "Salvamentos", "seAbaixo": "Deixe a lista de serviços mais visível na bio e nos destaques."}, {"n": 3, "nome": "Mostrar o ganho", "posts": [4], "porque": "Com o serviço entendido, tirar o medo do processo ajuda quem estava indeciso a dar o primeiro passo.", "metrica": "Cliques no link da bio e conversas iniciadas no WhatsApp", "seAbaixo": "Reforce o link da bio em um story e teste outra frase de chamada no post."}, {"n": 4, "nome": "Chamar quem convive", "posts": [5], "porque": "Quem decide o gasto em casa muitas vezes é outra pessoa; marcar e enviar traz esse decisor.", "metrica": "Compartilhamentos e marcações", "seAbaixo": "Peça o envio em story com uma enquete (\"quem lá em casa cuida do jardim?\")."}, {"n": 5, "nome": "Manter presença", "posts": [6, 7], "porque": "Versões em outro estilo lembram quem não viu antes, sem parecer repetição, e mantêm o perfil com conteúdo recente.", "metrica": "Alcance de não seguidores", "seAbaixo": "Produza posts novos antes de usar estas versões e use-as como anúncio."}], "porQueOrdem": ["A ordem alterna capas laranja e capas pretas, para o grid não ficar com duas artes do mesmo tom lado a lado.", "Como só existem 7 vídeos e eles repetem duas mensagens (\"Do mato ao jardim\" em 3 versões e \"3 passos\" em 2), a regra de 4 posts de distância entre mensagens parecidas só fecha para as versões principais (1 e 5). Os posts 5, 6 e 7 são variações: publique-os só depois de novos posts no meio, ou use como anúncio."], "stories": [{"titulo": "Link da bio", "ideia": "Recorte o quadro final laranja de qualquer vídeo (\"Chame no WhatsApp\") em um story 9:16 e coloque o sticker de link por cima.", "sticker": "Chame no WhatsApp"}, {"titulo": "Enquete de serviço", "ideia": "Use a capa do post 3 (PODA) com uma enquete: \"Qual serviço o seu jardim pede hoje?\" com Poda ou Plantio.", "sticker": "Peça seu orçamento"}, {"titulo": "Bastidor do passo 01", "ideia": "Grave a tela de uma conversa real de WhatsApp (sem dados de clientes) mostrando a primeira resposta.", "sticker": "Comece pelo WhatsApp"}], "reels": ["Corte de 10 s do trecho \"Mato alto → Por onde começar?\" do post 1 como Reel curto de curiosidade.", "Versão só com música do post 4 (os três passos) para atingir quem assiste sem som.", "Série de 4 Reels de 7 s, um por serviço, recortados do post 3 (Poda, Plantio, Manutenção, Paisagismo)."], "mercado": {"algoritmo": ["Segundo a Metricool, os sinais mais valorizados em 2026 são salvamentos, compartilhamentos por DM ou stories e tempo de visualização (o mais forte para Reels); curtidas pesam menos.", "A mesma fonte indica que Reels têm o melhor desempenho geral e que carrosséis são salvos mais vezes que outros formatos.", "O grid do perfil agora mostra miniaturas em 3:4 (1013x1350 px); a Planoly recomenda postar em 4:5 e deixar o texto longe das bordas, porque a miniatura corta as laterais.", "O Instagram permite fixar até 3 posts no topo do perfil."], "concorrentes": [{"nome": "Caterine Poli (Catê)", "posicionamento": "Paisagista que se apresenta com a ideia de \"jardins para usar\".", "diferencial": "Aqui o serviço é mostrado em animações curtas e a única chamada é o WhatsApp."}, {"nome": "Folha Paisagismo (Luiz Felipe e Luiz Gustavo)", "posicionamento": "Dupla que leva a natureza de áreas externas para dentro de casa.", "diferencial": "Aqui a marca fala do cuidado de rotina (poda, plantio e manutenção), não de projeto de autor."}, {"nome": "Erik Wisniewski", "posicionamento": "Implantação e manutenção de jardins, jardins verticais, irrigação e vasos.", "diferencial": "Aqui a identidade laranja e preta foge do visual verde comum no setor e os passos são explicados em 30 segundos."}, {"nome": "Marlon Lima", "posicionamento": "Projetos e construção de jardins internos e externos, com consultoria online.", "diferencial": "Aqui a pessoa chama direto no WhatsApp, sem etapa de consultoria."}], "diferencial": "Como esta marca se diferencia: usa animações curtas e uma identidade laranja e preta, fora do verde comum no setor, com um único convite (chamar no WhatsApp). A descrição de cada perfil vem de páginas de terceiros (veja as fontes); não foi feita análise direta dos perfis."}, "fontes": [{"titulo": "Metricool: Algoritmo do Instagram em 2026", "url": "https://metricool.com/pt/algoritmo-instagram/"}, {"titulo": "Planoly: guia do novo grid vertical do Instagram", "url": "https://planoly.com/blog/guide-to-instagrams-new-vertical-grid"}, {"titulo": "Wersm: fixe até 3 posts no perfil do Instagram", "url": "https://wersm.com/you-can-now-pin-up-to-3-posts-to-the-top-of-your-instagram-profile/"}, {"titulo": "TechRadar: Instagram permite fixar três posts", "url": "https://www.techradar.com/news/instagram-will-now-let-you-create-90-secs-reels-pin-three-posts-at-a-time-and-more"}, {"titulo": "Folha Vitória: perfis para quem ama paisagismo", "url": "https://www.folhavitoria.com.br/cultura/decoracao/perfis-nas-redes-sociais-para-quem-ama-paisagismo/"}, {"titulo": "Heepsy: perfis de jardinagem no Brasil", "url": "https://www.heepsy.com/top-instagram/garden/brazil"}, {"titulo": "Predis.ai: ideias de conteúdo para paisagistas", "url": "https://predis.ai/pt/resources/content-ideas-for-landscapers/"}]}}</script>
+<script>
+(function(){
+"use strict";
+var D=JSON.parse(document.getElementById("data").textContent);
+var POSTS=D.posts.slice().sort(function(a,b){return a.ordem-b.ordem});
+var PLAN=D.plan, MARCA=D.marca;
+var FASES={};PLAN.fases.forEach(function(f){FASES[f.n]=f});
+var LIMITE=2200;
+var isFile=location.protocol==="file:";
+
+/* ---------- estado (localStorage com fallback) ---------- */
+var mem={};
+function ld(k,def){try{var v=localStorage.getItem("cp_"+k);if(v!==null)return JSON.parse(v)}catch(e){}return (k in mem)?mem[k]:def}
+function sv(k,v){mem[k]=v;try{localStorage.setItem("cp_"+k,JSON.stringify(v))}catch(e){}}
+var pub=ld("pub",{}), edits=ld("edits",{}), chk=ld("chk",{}), tab=ld("tab","plano");
+var filtro="tudo", esconder=false;
+
+/* ---------- utilidades ---------- */
+function el(t,a,h){var e=document.createElement(t);if(a)for(var k in a){if(k==="class")e.className=a[k];else if(k==="text")e.textContent=a[k];else e.setAttribute(k,a[k])}if(h!==undefined)e.innerHTML=h;return e}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+var tt;function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("on")},2400)}
+function copiar(txt,msg){
+  function fb(){var ta=document.createElement("textarea");ta.value=txt;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;top:0;left:0;opacity:0";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,999999);var ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(ta);toast(ok?msg:"Não consegui copiar. Selecione o texto e copie manualmente.")}
+  if(navigator.clipboard&&navigator.clipboard.writeText&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){toast(msg)},fb)}else fb()
+}
+function legendaAtual(p){return (p.id in edits)?edits[p.id]:p.legenda}
+function textoCompleto(p){return legendaAtual(p).replace(/\s+$/,"")+"\n\n"+p.hashtags.join(" ")}
+function mid(p){return [{tipo:"video",src:"vid/web/"+p.video+".mp4",poster:"img/web/"+p.video+".webp"}]}
+function nome(p){return "#"+p.ordem+" "+p.titulo}
+function proximo(){for(var i=0;i<POSTS.length;i++)if(!pub[POSTS[i].id])return POSTS[i];return null}
+function byId(id){for(var i=0;i<POSTS.length;i++)if(POSTS[i].id===id)return POSTS[i];return null}
+function tipoNome(p){return p.principal?"Reel principal":"Variação"}
+
+/* ---------- salvar ---------- */
+function baixar(url,nomeArq){var a=document.createElement("a");a.href=url;a.download=nomeArq;a.rel="noopener";a.target="_blank";document.body.appendChild(a);a.click();document.body.removeChild(a)}
+var topo=true;try{topo=(window.top===window.self)}catch(e){topo=false}
+function viaCapacidade(url,nome){
+  if(!(window.claude&&window.claude.use))return Promise.resolve(false);
+  return window.claude.use("downloads").then(function(d){
+    if(!d)return false;
+    return fetch(url).then(function(r){return r.blob()}).then(function(b){return d.save({filename:nome,data:b})}).then(function(){return true},function(e){return !!(e&&e.code==="declined")});
+  },function(){return false});
+}
+function salvarPorAqui(url,nome,okMsg){toast("Preparando o arquivo…");viaCapacidade(url,nome).then(function(ok){if(ok)toast(okMsg);else{baixar(url,nome);toast("Abrimos o arquivo em outra aba. Se não baixar, use botão direito ou toque e segure para salvar")}})}
+function podeCompartilhar(){return topo&&!isFile&&navigator.canShare&&navigator.share}
+function salvarVideo(p){
+  var url="vid/full/"+p.video+".mp4";toast("Preparando o vídeo…");
+  fetch(url).then(function(r){return r.blob()}).then(function(b){
+    var f=new File([b],p.arquivo,{type:"video/mp4"});
+    if(navigator.canShare({files:[f]}))return navigator.share({files:[f]}).catch(function(e){if(e&&e.name==="AbortError")return;baixar(url,p.arquivo)});
+    baixar(url,p.arquivo);
+  }).catch(function(){baixar(url,p.arquivo)});
+}
+function msgSalvar(){return podeCompartilhar()?"":(topo&&!isFile?"Baixando o vídeo…":"Abrimos o vídeo em outra aba. Se não baixar, use botão direito ou toque e segure > Salvar vídeo")}
+/* ---------- progresso ---------- */
+function atualizaProg(){
+  var n=POSTS.filter(function(p){return pub[p.id]}).length,t=POSTS.length,pc=Math.round(n/t*100);
+  document.getElementById("progBar").style.width=pc+"%";
+  document.getElementById("progTxt").textContent=n+" de "+t+" publicados";
+  document.querySelector(".prog").setAttribute("aria-valuenow",pc);
+}
+
+/* ---------- cartão de post ---------- */
+function cartao(p){
+  var a=el("article",{class:"post"+(pub[p.id]?" pub":""),id:p.id});
+  var m=mid(p),idx=0;
+  var pv=el("div",{class:"pv "+p.tom});
+  m.forEach(function(x,i){
+    var s=el("div",{class:"slide"+(i===0?" on":"")});
+    var im=el("img",{src:x.poster,alt:p.alt,loading:"lazy"});s.appendChild(im);
+    var pl=el("button",{class:"play","aria-label":"Reproduzir vídeo: "+p.titulo},"&#9654;");
+    pl.addEventListener("click",function(){
+      var v=el("video",{src:x.src,poster:x.poster,controls:"",playsinline:"",preload:"auto","aria-label":p.alt});
+      s.innerHTML="";s.appendChild(v);var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});
+    });
+    s.appendChild(pl);pv.appendChild(s);
+  });
+  var dots=null;
+  if(m.length>1){
+    function go(n){idx=(n+m.length)%m.length;[].forEach.call(pv.querySelectorAll(".slide"),function(s,i){s.classList.toggle("on",i===idx);var v=s.querySelector("video");if(v&&i!==idx)v.pause()});[].forEach.call(dots.children,function(d,i){d.setAttribute("aria-current",i===idx)})}
+    var l=el("button",{class:"arr l","aria-label":"Anterior"},"&#8249;"),r=el("button",{class:"arr r","aria-label":"Próxima"},"&#8250;");
+    l.onclick=function(){go(idx-1)};r.onclick=function(){go(idx+1)};pv.appendChild(l);pv.appendChild(r);
+    dots=el("div",{class:"dots"});m.forEach(function(x,i){var d=el("button",{"aria-label":"Ir para a mídia "+(i+1),"aria-current":i===0});d.onclick=function(){go(i)};dots.appendChild(d)});
+    var sx=null;pv.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
+    pv.addEventListener("touchend",function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));sx=null});
+  }
+  a.appendChild(pv);if(dots)a.appendChild(dots);
+
+  var b=el("div",{class:"pb"});
+  var f=FASES[p.fase];
+  b.appendChild(el("div",{class:"badges"},'<span class="badge o">Post '+p.ordem+' de '+POSTS.length+'</span><span class="badge">'+esc(tipoNome(p))+'</span><span class="badge">Fase '+p.fase+(f?': '+esc(f.nome):'')+'</span>'));
+  b.appendChild(el("h3",{text:p.titulo}));
+  b.appendChild(el("p",{class:"obj"},"<strong>Objetivo:</strong> "+esc(p.objetivo)));
+  if(p.obs)b.appendChild(el("p",{class:"obs"},"<strong>Observação:</strong> "+esc(p.obs)));
+
+  var lid="leg-"+p.id;
+  b.appendChild(el("label",{for:lid,class:"muted"},"Legenda (pode editar)"));
+  var ta=el("textarea",{class:"leg clamp",id:lid,rows:"6"});ta.value=legendaAtual(p);b.appendChild(ta);
+  var bar=el("div",{class:"legbar"});var cnt=el("span",{class:"cnt"});
+  var ler=el("button",{class:"btn lnk",type:"button"},"Ler legenda inteira");
+  var des=el("button",{class:"btn lnk",type:"button"},"Desfazer edição");
+  bar.appendChild(cnt);bar.appendChild(ler);bar.appendChild(des);b.appendChild(bar);
+  function upd(){var n=textoCompleto(p).length;cnt.textContent=n+" / "+LIMITE+" caracteres (com hashtags)";cnt.className="cnt"+(n>LIMITE?" over":"");des.hidden=!(p.id in edits)}
+  ta.addEventListener("input",function(){if(ta.value===p.legenda)delete edits[p.id];else edits[p.id]=ta.value;sv("edits",edits);upd()});
+  ler.addEventListener("click",function(){var c=ta.classList.toggle("clamp");if(!c){ta.style.height=Math.min(ta.scrollHeight+4,700)+"px"}else ta.style.height="";ler.textContent=c?"Ler legenda inteira":"Recolher legenda"});
+  des.addEventListener("click",function(){delete edits[p.id];sv("edits",edits);ta.value=p.legenda;upd();toast("Legenda original restaurada")});
+  upd();
+  b.appendChild(el("p",{class:"tags"},esc(p.hashtags.join(" "))));
+
+  var acts=el("div",{class:"acts"});
+  var s1=el("a",{class:"btn pri big",href:"vid/full/"+p.video+".mp4",download:p.arquivo,target:"_blank",rel:"noopener"},"1 · Salvar vídeo");s1.addEventListener("click",function(e){if(podeCompartilhar()){e.preventDefault();salvarVideo(p)}else if(!topo){e.preventDefault();salvarPorAqui("vid/full/"+p.video+".mp4",p.arquivo,"Vídeo enviado para salvar")}else toast(msgSalvar())});
+  var s2=el("button",{class:"btn pri big",type:"button"},"2 · Copiar legenda");s2.onclick=function(){copiar(textoCompleto(p),"Legenda e hashtags copiadas")};
+  acts.appendChild(s1);acts.appendChild(s2);b.appendChild(acts);
+  var sm=el("div",{class:"small"});
+  [["Copiar só as hashtags",function(){copiar(p.hashtags.join(" "),"Hashtags copiadas")}],
+   ["Copiar texto alternativo",function(){copiar(p.alt,"Texto alternativo copiado")}],
+   
+   ["Copiar link deste post",function(){var u=location.href.split("#")[0]+"#"+p.id;copiar(u,"Link copiado")}]
+  ].forEach(function(x){var bt=el("button",{class:"btn lnk",type:"button"},x[0]);bt.onclick=x[1];sm.appendChild(bt)});
+  var cp=el("a",{class:"btn lnk",href:"img/full/"+p.video+".png",download:"capa-"+p.ordem+"-"+p.id+".png",target:"_blank",rel:"noopener"},"Baixar capa (PNG)");cp.addEventListener("click",function(e){if(!topo){e.preventDefault();salvarPorAqui("img/full/"+p.video+".png","capa-"+p.ordem+"-"+p.id+".png","Capa enviada para salvar");return}toast(topo&&!isFile?"Baixando a capa…":"Abrimos a capa em outra aba. Se não baixar, use botão direito ou toque e segure > Salvar imagem")});sm.insertBefore(cp,sm.children[2]||null);
+  b.appendChild(sm);
+
+  var pr=el("div",{class:"pubrow"});
+  var lb=el("label",{class:"chk"});var cb=el("input",{type:"checkbox"});cb.checked=!!pub[p.id];
+  cb.addEventListener("change",function(){setPub(p.id,cb.checked)});
+  lb.appendChild(cb);lb.appendChild(el("span",{text:"Já publiquei"}));pr.appendChild(lb);b.appendChild(pr);
+  a.appendChild(b);return a;
+}
+function setPub(id,v){if(v)pub[id]=true;else delete pub[id];sv("pub",pub);render()}
+
+/* ---------- abas ---------- */
+function mostra(t){
+  tab=t;sv("tab",t);
+  ["plano","posts","pastas"].forEach(function(n){
+    document.getElementById("panel-"+n).hidden=(n!==t);
+    var b=document.getElementById("tab-"+n);b.setAttribute("aria-selected",n===t);b.tabIndex=(n===t?0:-1);
+  });
+}
+function abrirPost(id,hl){
+  filtro="tudo";esconder=false;mostra("posts");renderPosts();
+  var e=document.getElementById(id);if(!e)return;
+  if(history.replaceState){try{history.replaceState(null,"","#"+id)}catch(x){location.hash=id}}else location.hash=id;
+  e.scrollIntoView({block:"start"});e.classList.add("hl");setTimeout(function(){e.classList.remove("hl")},2500);
+  var h=e.querySelector("h3");if(h){h.tabIndex=-1;h.focus({preventScroll:true})}
+}
+
+/* ---------- painel Plano ---------- */
+function renderPlano(){
+  var P=document.getElementById("panel-plano");P.innerHTML="";
+  var nx=proximo();
+  var box=el("div",{class:"box"});
+  box.appendChild(el("h2",{text:"Próximo post",style:"margin-top:0"}));
+  if(nx){
+    var g=el("div",{class:"next"});
+    g.appendChild(el("img",{src:"img/web/"+nx.video+".webp",alt:"Miniatura: "+nx.titulo}));
+    var c=el("div");c.appendChild(el("h3",{text:nome(nx)}));c.appendChild(el("p",{class:"obj"},esc(nx.objetivo)));g.appendChild(c);box.appendChild(g);
+    var r=el("div",{class:"row"});
+    var a1=el("button",{class:"btn pri",type:"button"},"Abrir vídeo e legenda");a1.onclick=function(){abrirPost(nx.id)};
+    var a2=el("button",{class:"btn",type:"button"},"Já publiquei");a2.onclick=function(){setPub(nx.id,true);toast("Marcado como publicado")};
+    r.appendChild(a1);r.appendChild(a2);box.appendChild(r);
+  }else box.appendChild(el("p",{text:"Tudo publicado. Quando criar novos vídeos, adicione-os em src/posts.json e gere o site de novo."}));
+  P.appendChild(box);
+
+  /* checklist */
+  var cb=el("div",{class:"box"});cb.appendChild(el("h2",{text:"Antes de começar",style:"margin-top:0"}));
+  var feitos=PLAN.checklist.filter(function(i){return chk[i.id]}).length;
+  var pg=el("div",{class:"prog-l",text:feitos+" de "+PLAN.checklist.length+" itens prontos"});cb.appendChild(pg);
+  var bar=el("div",{class:"prog"});bar.appendChild(el("i",{style:"width:"+Math.round(feitos/PLAN.checklist.length*100)+"%"}));cb.appendChild(bar);
+  PLAN.checklist.forEach(function(i){
+    var lb=el("label",{class:"chk"});var c=el("input",{type:"checkbox"});c.checked=!!chk[i.id];
+    c.addEventListener("change",function(){if(c.checked)chk[i.id]=true;else delete chk[i.id];sv("chk",chk);var y=window.scrollY;renderPlano();window.scrollTo(0,y)});
+    lb.appendChild(c);lb.appendChild(el("span",{text:i.texto}));cb.appendChild(lb);
+  });
+  P.appendChild(cb);
+
+  /* resumo marca */
+  var rb=el("div",{class:"box"});rb.appendChild(el("h2",{text:"O que entendi da marca",style:"margin-top:0"}));
+  var ul=el("ul",{class:"plain"});PLAN.resumoMarca.forEach(function(t){ul.appendChild(el("li",{text:t}))});rb.appendChild(ul);
+  rb.appendChild(el("p",{class:"muted",text:MARCA.nota}));P.appendChild(rb);
+
+  /* sequência */
+  P.appendChild(el("h2",{text:"Sequência de publicação"}));
+  PLAN.fases.forEach(function(f){
+    var d=el("div",{class:"fase"});d.appendChild(el("h3",{text:"Fase "+f.n+": "+f.nome}));
+    d.appendChild(el("p",{class:"muted",text:f.porque}));
+    var ol=el("ol");
+    f.posts.forEach(function(o){
+      var p=POSTS.filter(function(x){return x.ordem===o})[0];if(!p)return;
+      var li=el("li"),bt=el("button",{type:"button",class:pub[p.id]?"done":""});
+      bt.appendChild(el("span",{class:"n",text:String(p.ordem)}));
+      bt.appendChild(el("img",{src:"img/web/"+p.video+".webp",alt:""}));
+      bt.appendChild(el("span",{text:p.titulo}));
+      if(pub[p.id])bt.appendChild(el("span",{class:"ok",text:"Publicado"}));
+      bt.onclick=function(){abrirPost(p.id)};li.appendChild(bt);ol.appendChild(li);
+    });
+    d.appendChild(ol);P.appendChild(d);
+  });
+
+  var pb=el("div",{class:"box"});pb.appendChild(el("h2",{text:"Por que essa ordem",style:"margin-top:0"}));
+  var u2=el("ul",{class:"plain"});PLAN.porQueOrdem.forEach(function(t){u2.appendChild(el("li",{text:t}))});pb.appendChild(u2);P.appendChild(pb);
+
+  var sb=el("div",{class:"box"});sb.appendChild(el("h2",{text:"Stories e Reels",style:"margin-top:0"}));
+  sb.appendChild(el("h3",{text:"Stories"}));
+  var u3=el("ul",{class:"plain"});PLAN.stories.forEach(function(s){u3.appendChild(el("li",{},"<strong>"+esc(s.titulo)+":</strong> "+esc(s.ideia)+' Sticker de link: <em>"'+esc(s.sticker)+'"</em>.'))});sb.appendChild(u3);
+  sb.appendChild(el("h3",{text:"Ideias de Reels",style:"margin-top:14px"}));
+  var u4=el("ul",{class:"plain"});PLAN.reels.forEach(function(t){u4.appendChild(el("li",{text:t}))});sb.appendChild(u4);P.appendChild(sb);
+
+  var mb=el("div",{class:"box"});mb.appendChild(el("h2",{text:"Como medir",style:"margin-top:0"}));
+  var u5=el("ul",{class:"plain"});PLAN.fases.forEach(function(f){u5.appendChild(el("li",{},"<strong>Fase "+f.n+" ("+esc(f.nome)+"):</strong> "+esc(f.metrica)+". Se ficar abaixo: "+esc(f.seAbaixo)))});mb.appendChild(u5);P.appendChild(mb);
+
+  var kb=el("div",{class:"box"});kb.appendChild(el("h2",{text:"Mercado",style:"margin-top:0"}));
+  kb.appendChild(el("h3",{text:"O que o Instagram valoriza"}));
+  var u6=el("ul",{class:"plain"});PLAN.mercado.algoritmo.forEach(function(t){u6.appendChild(el("li",{text:t}))});kb.appendChild(u6);
+  kb.appendChild(el("h3",{text:"Perfis parecidos",style:"margin-top:14px"}));
+  var u7=el("ul",{class:"plain"});PLAN.mercado.concorrentes.forEach(function(c){u7.appendChild(el("li",{},"<strong>"+esc(c.nome)+":</strong> "+esc(c.posicionamento)+" "+esc(c.diferencial)))});kb.appendChild(u7);
+  kb.appendChild(el("p",{class:"muted",text:PLAN.mercado.diferencial}));P.appendChild(kb);
+
+  var fb=el("div",{class:"box"});fb.appendChild(el("h2",{text:"Fontes",style:"margin-top:0"}));
+  var u8=el("ul",{class:"plain"});PLAN.fontes.forEach(function(s){u8.appendChild(el("li",{},'<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.titulo)+'</a>'))});fb.appendChild(u8);P.appendChild(fb);
+}
+
+/* ---------- painel Posts ---------- */
+function renderPosts(){
+  var P=document.getElementById("panel-posts");P.innerHTML="";
+  var fl=el("div",{class:"filters",role:"group","aria-label":"Filtros"});
+  [["tudo","Tudo"],["principal","Principais"],["variacao","Variações"],["story","Story"]].forEach(function(f){
+    var b=el("button",{type:"button","aria-pressed":filtro===f[0]},f[1]);b.onclick=function(){filtro=f[0];renderPosts()};fl.appendChild(b);
+  });
+  var lb=el("label",{});var c=el("input",{type:"checkbox"});c.checked=esconder;c.onchange=function(){esconder=c.checked;renderPosts()};lb.appendChild(c);lb.appendChild(el("span",{text:"Esconder publicados"}));fl.appendChild(lb);
+  P.appendChild(fl);
+  var lista=POSTS.filter(function(p){
+    if(esconder&&pub[p.id])return false;
+    if(filtro==="principal")return p.principal;
+    if(filtro==="variacao")return !p.principal;
+    if(filtro==="story")return p.tipo==="story";
+    return true;
+  });
+  if(!lista.length)P.appendChild(el("div",{class:"empty",text:filtro==="story"?"Nenhum story nesta pasta. Todas as artes são vídeos 4:5 para o feed e Reels. Veja ideias de stories na aba Plano.":"Nenhum post neste filtro."}));
+  lista.forEach(function(p){P.appendChild(cartao(p))});
+}
+
+/* ---------- painel Pastas ---------- */
+function renderPastas(){
+  var P=document.getElementById("panel-pastas");P.innerHTML="";
+  var g={};POSTS.forEach(function(p){(g[p.pasta]=g[p.pasta]||[]).push(p)});
+  Object.keys(g).forEach(function(k){
+    var d=el("div",{class:"pasta"});d.appendChild(el("h3",{text:k+" ("+g[k].length+" vídeos)"}));
+    g[k].slice().sort(function(a,b){return a.arquivo<b.arquivo?-1:1}).forEach(function(p){
+      var it=el("div",{class:"it"});it.appendChild(el("img",{src:"img/web/"+p.video+".webp",alt:""}));
+      var bt=el("button",{type:"button"},"<strong>"+esc(p.arquivo)+"</strong><br><span class='muted'>Post "+p.ordem+" · "+esc(tipoNome(p))+(pub[p.id]?" · Publicado":"")+"</span>");
+      bt.onclick=function(){abrirPost(p.id)};it.appendChild(bt);d.appendChild(it);
+    });
+    P.appendChild(d);
+  });
+}
+
+function render(){atualizaProg();renderPlano();renderPosts();renderPastas()}
+
+/* ---------- início ---------- */
+document.getElementById("nomeMarca").textContent=MARCA.nome;
+[].forEach.call(document.querySelectorAll("nav.tabs button"),function(b){b.addEventListener("click",function(){mostra(b.dataset.tab);window.scrollTo(0,0)})});
+render();
+var h=decodeURIComponent((location.hash||"").slice(1));
+if(h&&byId(h)){setTimeout(function(){abrirPost(h)},50)}else mostra(["plano","posts","pastas"].indexOf(tab)>-1?tab:"plano");
+window.addEventListener("hashchange",function(){var x=decodeURIComponent(location.hash.slice(1));if(byId(x))abrirPost(x)});
+})();
+</script>
+</body>
+</html>
