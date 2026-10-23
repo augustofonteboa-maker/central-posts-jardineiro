@@ -255,7 +255,7 @@ function cartao(p){
   var zn="post"+p.ordem+"-"+p.id+".zip",zu="zip/"+zn;
   var zl=el("a",{class:"btn big",href:zu,download:zn,target:"_blank",rel:"noopener",style:"margin-top:10px"},"Baixar pacote .zip (vídeo + capa + legenda)");
   zl.addEventListener("click",function(e){if(!topo){e.preventDefault();salvarPorAqui(zu,zn,"Pacote enviado para salvar")}else toast("Baixando o pacote…")});
-  b.appendChild(zl);
+  if(topo)b.appendChild(zl);
   var sm=el("div",{class:"small"});
   [["Copiar só as hashtags",function(){copiar(p.hashtags.join(" "),"Hashtags copiadas")}],
    ["Copiar texto alternativo",function(){copiar(p.alt,"Texto alternativo copiado")}],
