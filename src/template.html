@@ -192,7 +192,7 @@ function salvarVideo(p){
     baixar(url,p.arquivo);
   }).catch(function(){baixar(url,p.arquivo)});
 }
-function msgSalvar(){return podeCompartilhar()?"":(topo&&!isFile?"Baixando o vídeo…":"Abrimos o vídeo em outra aba. Se não baixar, use botão direito ou toque e segure > Salvar vídeo")}
+function msgSalvar(){return (topo&&!isFile?"Baixando o vídeo…":"Abrimos o vídeo em outra aba. Se não baixar, use botão direito ou toque e segure > Salvar vídeo")}
 /* ---------- progresso ---------- */
 function atualizaProg(){
   var n=POSTS.filter(function(p){return pub[p.id]}).length,t=POSTS.length,pc=Math.round(n/t*100);
@@ -249,7 +249,7 @@ function cartao(p){
   b.appendChild(el("p",{class:"tags"},esc(p.hashtags.join(" "))));
 
   var acts=el("div",{class:"acts"});
-  var s1=el("a",{class:"btn pri big",href:"vid/full/"+p.video+".mp4",download:p.arquivo,target:"_blank",rel:"noopener"},"1 · Salvar vídeo");s1.addEventListener("click",function(e){if(podeCompartilhar()){e.preventDefault();salvarVideo(p)}else if(!topo){e.preventDefault();salvarPorAqui("vid/full/"+p.video+".mp4",p.arquivo,"Vídeo enviado para salvar")}else toast(msgSalvar())});
+  var s1=el("a",{class:"btn pri big",href:"vid/full/"+p.video+".mp4",download:p.arquivo,target:"_blank",rel:"noopener"},"1 · Salvar vídeo");s1.addEventListener("click",function(e){if(!topo){e.preventDefault();salvarPorAqui("vid/full/"+p.video+".mp4",p.arquivo,"Vídeo enviado para salvar")}else toast(msgSalvar())});
   var s2=el("button",{class:"btn pri big",type:"button"},"2 · Copiar legenda");s2.onclick=function(){copiar(textoCompleto(p),"Legenda e hashtags copiadas")};
   acts.appendChild(s1);acts.appendChild(s2);b.appendChild(acts);
   var sm=el("div",{class:"small"});
@@ -259,6 +259,7 @@ function cartao(p){
    ["Copiar link deste post",function(){var u=location.href.split("#")[0]+"#"+p.id;copiar(u,"Link copiado")}]
   ].forEach(function(x){var bt=el("button",{class:"btn lnk",type:"button"},x[0]);bt.onclick=x[1];sm.appendChild(bt)});
   var cp=el("a",{class:"btn lnk",href:"img/full/"+p.video+".png",download:"capa-"+p.ordem+"-"+p.id+".png",target:"_blank",rel:"noopener"},"Baixar capa (PNG)");cp.addEventListener("click",function(e){if(!topo){e.preventDefault();salvarPorAqui("img/full/"+p.video+".png","capa-"+p.ordem+"-"+p.id+".png","Capa enviada para salvar");return}toast(topo&&!isFile?"Baixando a capa…":"Abrimos a capa em outra aba. Se não baixar, use botão direito ou toque e segure > Salvar imagem")});sm.insertBefore(cp,sm.children[2]||null);
+  if(podeCompartilhar()){var sh=el("button",{class:"btn lnk",type:"button"},"Compartilhar vídeo");sh.onclick=function(){salvarVideo(p)};sm.insertBefore(sh,sm.children[2]||null)}
   var ab=el("a",{class:"btn lnk",href:"vid/full/"+p.video+".mp4",target:"_blank",rel:"noopener"},"Abrir vídeo em outra aba");sm.insertBefore(ab,sm.children[3]||null);
   b.appendChild(sm);
 
