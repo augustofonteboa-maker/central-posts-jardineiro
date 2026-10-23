@@ -173,16 +173,16 @@ function byId(id){for(var i=0;i<POSTS.length;i++)if(POSTS[i].id===id)return POST
 function tipoNome(p){return p.principal?"Reel principal":"Variação"}
 
 /* ---------- salvar ---------- */
-function baixar(url,nomeArq){var a=document.createElement("a");a.href=url;a.download=nomeArq;a.rel="noopener";a.target="_blank";document.body.appendChild(a);a.click();document.body.removeChild(a)}
 var topo=true;try{topo=(window.top===window.self)}catch(e){topo=false}
+function baixar(url,nomeArq){var a=document.createElement("a");a.href=url;if(topo)a.download=nomeArq;a.rel="noopener";a.target="_blank";document.body.appendChild(a);a.click();document.body.removeChild(a)}
 function viaCapacidade(url,nome){
   if(!(window.claude&&window.claude.use))return Promise.resolve(false);
   return window.claude.use("downloads").then(function(d){
     if(!d)return false;
-    return fetch(url).then(function(r){return r.blob()}).then(function(b){return d.save({filename:nome,data:b})}).then(function(){return true},function(e){return !!(e&&e.code==="declined")});
+    return fetch(url).then(function(r){return r.blob()}).then(function(b){return d.save({filename:nome,data:b})}).then(function(){return true},function(e){window.__dlerr=(e&&(e.code||e.message))||"erro";return !!(e&&e.code==="declined")});
   },function(){return false});
 }
-function salvarPorAqui(url,nome,okMsg){toast("Preparando o arquivo…");viaCapacidade(url,nome).then(function(ok){if(ok)toast(okMsg);else{baixar(url,nome);toast("Abrimos o arquivo em outra aba. Se não baixar, use botão direito ou toque e segure para salvar")}})}
+function salvarPorAqui(url,nome,okMsg){toast("Preparando o arquivo…");viaCapacidade(url,nome).then(function(ok){if(ok)toast(okMsg);else{baixar(url,nome);toast("Não consegui salvar direto"+(window.__dlerr?" ("+window.__dlerr+")":"")+". Abri o arquivo em outra aba: use botão direito ou toque e segure para salvar.")}})}
 function podeCompartilhar(){return topo&&!isFile&&navigator.canShare&&navigator.share}
 function salvarVideo(p){
   var url="vid/full/"+p.video+".mp4";toast("Preparando o vídeo…");
@@ -259,6 +259,7 @@ function cartao(p){
    ["Copiar link deste post",function(){var u=location.href.split("#")[0]+"#"+p.id;copiar(u,"Link copiado")}]
   ].forEach(function(x){var bt=el("button",{class:"btn lnk",type:"button"},x[0]);bt.onclick=x[1];sm.appendChild(bt)});
   var cp=el("a",{class:"btn lnk",href:"img/full/"+p.video+".png",download:"capa-"+p.ordem+"-"+p.id+".png",target:"_blank",rel:"noopener"},"Baixar capa (PNG)");cp.addEventListener("click",function(e){if(!topo){e.preventDefault();salvarPorAqui("img/full/"+p.video+".png","capa-"+p.ordem+"-"+p.id+".png","Capa enviada para salvar");return}toast(topo&&!isFile?"Baixando a capa…":"Abrimos a capa em outra aba. Se não baixar, use botão direito ou toque e segure > Salvar imagem")});sm.insertBefore(cp,sm.children[2]||null);
+  var ab=el("a",{class:"btn lnk",href:"vid/full/"+p.video+".mp4",target:"_blank",rel:"noopener"},"Abrir vídeo em outra aba");sm.insertBefore(ab,sm.children[3]||null);
   b.appendChild(sm);
 
   var pr=el("div",{class:"pubrow"});
